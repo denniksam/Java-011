@@ -1,5 +1,9 @@
 package itstep.learning;
 
+import itstep.learning.oop.Book;
+import itstep.learning.oop.Journal;
+import itstep.learning.oop.Library;
+
 import java.util.Scanner ;
 
 /**
@@ -7,7 +11,18 @@ import java.util.Scanner ;
  *
  */
 public class App {   // Классы именуются CapitalCamelCase
-    public static void main( String[] args ) {   // методы и переменные именуются lowerCamelCase
+    public static void main( String[] args ) {
+        Library library = new Library() ;
+
+        library.add( new Book( "Knuth", "Art of programming" ) ) ;  // Полиморфизм -
+        library.add( new Book( "Shevchenko", "Kobzar" ) ) ;         // разные реализации
+        library.add( new Journal( 10, "ArgC & ArgV" ) ) ;           // (Book, Journal)
+        library.add( new Journal( 5, "Nature" ) ) ;                 // Одного интерфейса (Literature)
+
+        library.printFunds() ;
+    }
+
+    public static void hello( String[] args ) {   // методы и переменные именуются lowerCamelCase
         // region  Переменные и типы данных
         // Числовые  !! все числовые типы знаковые, беззнаковых - нет
         byte byteVar = 10 ;  // -128..127 --> 256 комбинаций
