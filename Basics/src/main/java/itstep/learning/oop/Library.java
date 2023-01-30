@@ -2,6 +2,7 @@ package itstep.learning.oop;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Library {
     private List<Literature> funds ;   // List - interface for collection
@@ -20,6 +21,21 @@ public class Library {
         else {
             for( Literature literature : funds ) {
                 System.out.println( literature ) ;
+            }
+        }
+    }
+    public void showPrinted() {
+        for( Literature literature : funds ) {
+            if( literature instanceof Printed ) {
+                System.out.println( literature.toString() ) ;
+            }
+        }
+    }
+
+    public void playAll() {
+        for( Literature literature : funds ) {
+            if( literature instanceof Playable ) {
+                ((Playable) literature).play() ;
             }
         }
     }
