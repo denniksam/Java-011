@@ -1,5 +1,6 @@
 package itstep.learning;
 
+import itstep.learning.db.DbDemo;
 import itstep.learning.files.DirDemo;
 import itstep.learning.files.IoDemo;
 import itstep.learning.oop.*;
@@ -13,8 +14,9 @@ import java.util.Scanner ;
  */
 public class App {   // Классы именуются CapitalCamelCase
     public static void main( String[] args ) {
-        new IoDemo().run();
-        new DirDemo().run() ;
+        new DbDemo().run() ;
+        // new IoDemo().run();
+        // new DirDemo().run() ;
     }
 
     public static void oop( String[] args ) {
