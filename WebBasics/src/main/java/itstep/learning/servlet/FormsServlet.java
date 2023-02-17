@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,16 +16,32 @@ import java.util.Date;
 public class FormsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding( "UTF-8" ) ;  // установка кодировки чтения из запроса. ДО ПЕРВОГО ЧТЕНИЯ
-        resp.setCharacterEncoding( "UTF-8" ) ;
 
-        FormsModel model = parseModel( req ) ;
+        HttpSession session = req.getSession() ;
+        FormsModel model = (FormsModel) session.getAttribute( "model" ) ;
+        if( model == null ) {
+            model = parseModel( req ) ;
+        }
+        else {
+            session.removeAttribute( "model" ) ;
+        }
+
         req.setAttribute( "formsModel", model ) ;
         req.getRequestDispatcher( "WEB-INF/forms.jsp" )
                 .forward( req, resp ) ;
     }
 
-    private FormsModel parseModel( HttpServletRequest req ) {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        FormsModel model = parseModel( req ) ;
+
+        HttpSession session = req.getSession() ;
+        session.setAttribute( "model", model ) ;
+        resp.sendRedirect( req.getRequestURI() ) ;
+    }
+
+    private FormsModel parseModel(HttpServletRequest req ) {
         FormsModel model = new FormsModel() ;
         model.setMethod( req.getMethod() ) ;
         // region "text"
