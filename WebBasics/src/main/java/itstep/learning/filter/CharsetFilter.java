@@ -1,10 +1,13 @@
 package itstep.learning.filter;
 
+import com.google.inject.Singleton;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@Singleton
 public class CharsetFilter implements Filter {
     private FilterConfig filterConfig ;
     @Override
@@ -47,4 +50,20 @@ public class CharsetFilter implements Filter {
           formsServlet->JSP
 /forms <
          /formsprocessor -> formsprocessorServlet -> JSP (без формы, только результат)
+ */
+/*
+Инверсия управления в веб-проектах (Guice)
+Добавляем две зависимости
+<!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
+<!-- https://mvnrepository.com/artifact/com.google.inject.extensions/guice-servlet -->
+
+- заменяем файл web.xml
+- создаем пакет ioc
+  = класс ConfigListener extends GuiceServletContextListener
+  = класс RouterModule extends ServletModule
+  = класс ServiceModule extends AbstractModule
+- переносим коды управления фильтрами/сервлетами в RouterModule
+- убираем аннотации @WebServlet, @WebFilter и добавляем для
+   всех фильтров и сервлетов аннотацию @Singleton  (из com.google.inject)
+- Enjoy
  */

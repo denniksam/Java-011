@@ -10,11 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/filter/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ConfigListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/RouterModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ServiceModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/service/DbService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/service/LocalDbService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web_old.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/filter/CharsetFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/filter/CharsetFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/AboutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/AboutServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/FormsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/FormsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/HomeServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/WebBasics/WEB-INF/forms.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/WebBasics/WEB-INF/forms.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/WebBasics/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/WebBasics/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +34,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -68,8 +77,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20230217_0001",
-    "last_opened_file_path": "C:/Users/_dns_/source/repos/JavaExer/DioApi",
+    "com.google.cloudcode.ide_session_index": "20230220_0001",
+    "last_opened_file_path": "C:/Users/_dns_/source/repos/Java-011/WebBasics/src/main/webapp/WEB-INF",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,6 +91,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\_dns_\source\repos\Java-011\WebBasics\src\main\webapp\WEB-INF" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\_dns_\source\repos\Java-011\WebBasics\src\main\webapp\WEB-INF" />
     </key>
@@ -320,12 +332,6 @@
         </option>
       </method>
     </configuration>
-    <configuration default="true" type="gcp-app-engine-local-run" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
-      <server-settings />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Google App Engine Deployment.Google App Engine Deployment" />
       <item itemvalue="Google App Engine Deployment.Unnamed" />
@@ -348,11 +354,23 @@
       <workItem from="1676385219127" duration="186000" />
       <workItem from="1676475737940" duration="10662000" />
       <workItem from="1676649486042" duration="10214000" />
+      <workItem from="1676908872069" duration="4620000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
