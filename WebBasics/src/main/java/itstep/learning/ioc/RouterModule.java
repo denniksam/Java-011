@@ -6,6 +6,7 @@ import itstep.learning.filter.DbCheckFilter;
 import itstep.learning.servlet.AboutServlet;
 import itstep.learning.servlet.FormsServlet;
 import itstep.learning.servlet.HomeServlet;
+import itstep.learning.servlet.UserRegisterServlet;
 
 public class RouterModule extends ServletModule {
     @Override
@@ -18,5 +19,6 @@ public class RouterModule extends ServletModule {
         serve( "/home"  ).with( HomeServlet.class  ) ;
         serve( "/forms" ).with( FormsServlet.class ) ;
         serve( "/about" ).with( AboutServlet.class ) ;
+        serve( "/register" ).with( UserRegisterServlet.class ) ;
     }
 }

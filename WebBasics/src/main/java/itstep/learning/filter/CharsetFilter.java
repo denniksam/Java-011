@@ -26,11 +26,11 @@ public class CharsetFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse ;
         req.setCharacterEncoding( "UTF-8" ) ;  // установка кодировки чтения из запроса. ДО ПЕРВОГО ЧТЕНИЯ
         resp.setCharacterEncoding( "UTF-8" ) ;
-        System.out.println("Forward");
+        // System.out.println("Forward");
         // цепочку фильтров необходимо продолжить. Иначе она будет прервана и запрос прекратит обработку
         filterChain.doFilter( servletRequest, servletResponse ) ;
         // после вызова цепочки - обратный ход (обработка ответа)
-        System.out.println("Backward");
+        // System.out.println("Backward");
     }
 
     @Override

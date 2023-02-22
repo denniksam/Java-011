@@ -1,7 +1,9 @@
 package itstep.learning.servlet;
 
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import itstep.learning.model.FormsModel;
+import itstep.learning.service.HashService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +18,9 @@ import java.util.Date;
 
 @Singleton
 public class FormsServlet extends HttpServlet {
+    @Inject
+    private HashService hashService ;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -55,7 +60,7 @@ public class FormsServlet extends HttpServlet {
             model.setText( "empty" ) ;
         }
         else {
-            model.setText( text ) ;
+            model.setText( text + " " + hashService.getHexHash( text ) ) ;
         }
         // endregion
         // region "number"
