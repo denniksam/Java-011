@@ -44,15 +44,16 @@ public class UserDao {   // Data Access Object  for entity.User
         String salt = hashService.getHexHash( System.nanoTime() + "" ) ;
         // Создаем хеш пароля
         String hash = getPassHash( model.getPass1(), salt ) ;
-        String sql = "INSERT INTO Users(`id`,`login`,`name`,`salt`,`pass`,`email`) " +
-                " VALUES( UUID(), ?, ?, ?, ?, ? )" ;
+        String sql = "INSERT INTO Users(`id`,`login`,`name`,`salt`,`pass`,`email`, `avatar`) " +
+                " VALUES( UUID(), ?, ?, ?, ?, ?, ? )" ;
         try( PreparedStatement prep = dbService.getConnection().prepareStatement( sql ) ) {
-            /*
-            Д.З. Реализовать выполнение запроса по добавлению (регистрации) пользователя
-            в БД. Внедрить коды добавления в сервлет. Проверить работоспособность
-            через форму регистрации.
-            * Стилизация регистрационной формы.
-             */
+            prep.setString(1, model.getLogin());
+            prep.setString(2, model.getName());
+            prep.setString(3, salt);
+            prep.setString(4, hash);
+            prep.setString(5, model.getEmail());
+            prep.setString(6, model.getAvatar());
+            prep.executeUpdate() ;
             return true ;
         }
         catch( Exception ex ) {
