@@ -12,7 +12,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponse;import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
@@ -29,25 +29,36 @@ public class UserRegisterServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher( "WEB-INF/reg-user.jsp" )
-                .forward( req, resp ) ;
+        req.setAttribute( "viewName", "reg-user" ) ;
+        HttpSession session = req.getSession() ;
+        String regMessage = (String) session.getAttribute( "reg-message" ) ;
+        if( regMessage != null ) {
+            req.setAttribute( "reg-message", regMessage ) ;
+            session.removeAttribute( "reg-message" ) ;
+        }
+        req.getRequestDispatcher( "WEB-INF/_layout.jsp" ).forward( req, resp ) ;
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String regMessage ;
         try {
             UserModel model = parseModel( req ) ;
             validateModel( model ) ;
             if( userDao.add( model ) ) {
-                System.out.println( "Add OK" ) ;
+                regMessage = "OK" ;
             }
             else {
-                System.err.println( "Add fail" ) ;
+                regMessage = "Add fail" ;
             }
         }
         catch( IllegalArgumentException ex ) {
             System.err.println( ex.getMessage() ) ;
+            regMessage = ex.getMessage() ;
         }
+        HttpSession session = req.getSession() ;
+        session.setAttribute( "reg-message", regMessage ) ;
+        resp.sendRedirect( req.getRequestURI() ) ;
     }
     private UserModel parseModel( HttpServletRequest req ) throws IllegalArgumentException {
         try {
