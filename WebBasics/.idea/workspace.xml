@@ -10,18 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserAuthServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/_layout.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/reg-user-old (2).jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/filter/AuthFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/StringModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/service/auth/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/service/auth/SessionAuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/DownloadServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/filter/DbCheckFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/filter/DbCheckFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ConfigListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ConfigListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/RouterModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/RouterModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserRegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserRegisterServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/reg-user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/reg-user.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/WebBasics/WEB-INF/reg-user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/WebBasics/WEB-INF/reg-user.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/WebBasics/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ServiceModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ServiceModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserAuthServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserAuthServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/_layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/_layout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/WebBasics/WEB-INF/_layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/WebBasics/WEB-INF/_layout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/avatars/725e0c0d725a5b71c2d6c365e81dc1a7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/target/avatars/725e0c0d725a5b71c2d6c365e81dc1a7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/avatars/d6595c6450ff1b97c3a08032dd28bc26.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +36,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Jsp File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -76,7 +81,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20230227_0001",
+    "com.google.cloudcode.ide_session_index": "20230303_0001",
     "last_opened_file_path": "C:/Users/_dns_/source/repos/Java-011/WebBasics/src/main/webapp/WEB-INF",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -85,7 +90,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.sourceCode",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -363,6 +368,9 @@
       <workItem from="1677253969571" duration="10952000" />
       <workItem from="1677356206797" duration="13000" />
       <workItem from="1677512852346" duration="10702000" />
+      <workItem from="1677685028979" duration="10341000" />
+      <workItem from="1677768049352" duration="49000" />
+      <workItem from="1677858466438" duration="10705000" />
     </task>
     <servers />
   </component>

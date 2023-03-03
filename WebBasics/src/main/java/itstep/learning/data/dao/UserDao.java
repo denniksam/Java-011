@@ -39,6 +39,22 @@ public class UserDao {   // Data Access Object  for entity.User
         }
     }
 
+    public User getUserByCredentials( String login, String password ) {
+        String sql = "SELECT * FROM users WHERE login = ?";
+        try( PreparedStatement prep = dbService.getConnection().prepareStatement(sql) ) {
+            prep.setString( 1, login ) ;
+            ResultSet res = prep.executeQuery() ;
+            if( res.next() ) {
+                User user = new User( res ) ;
+                if( getPassHash( password, user.getSalt() ).equals( user.getPass() ) ) {
+                    return user ;
+                }
+            }
+        } catch( Exception ex ) {
+            System.err.println( "UserDao::getUserByCredentials" + ex.getMessage() ) ;
+        }
+        return null ;
+    }
     public boolean add( @Nonnull UserModel model ) {
         // Генерируем соль
         String salt = hashService.getHexHash( System.nanoTime() + "" ) ;

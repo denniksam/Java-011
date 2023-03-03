@@ -1,9 +1,13 @@
+<%@ page import="com.google.inject.Inject" %>
+<%@ page import="itstep.learning.service.auth.AuthService" %>
+<%@ page import="itstep.learning.data.entity.User" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
     String contextPath = request.getContextPath() ;
     String viewName = (String) request.getAttribute( "viewName" ) ;
     if( viewName == null ) viewName = "index" ;
     String viewPage = viewName + ".jsp" ;
+    User authUser = (User) request.getAttribute( "authUser" ) ;
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,13 +27,22 @@
                 <div class="col s12">
                     <a href="<%= contextPath %>" class="brand-logo">Web Basics</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <% if( authUser != null ) { %>
+                    <img src="<%= contextPath %>/image/<%= authUser.getAvatar() %>"
+                         class="right"
+                         style="width: 44px; height: 44px; border-radius: 50%; margin-top:10px">
+                    <% } %>
                     <ul class="right hide-on-med-and-down" id="main-menu">
                         <li <%= viewName.equals( "index" ) ? "class='active'" : "" %> ><a href="<%= contextPath %>/home"><i class="material-icons left">home</i>Home</a></li>
                         <li <%= viewName.equals( "reg-user" ) ? "class='active'" : "" %> ><a href="<%= contextPath %>/register"><i class="material-icons left">person</i>Registration</a></li>
-                        <li><a href="#auth-modal" class="waves-effect waves-light modal-trigger"><i class="material-icons left">person_outline</i>Log in</a></li>
-
+                        <% if( authUser == null ) { %>
+                            <li><a href="#auth-modal" class="waves-effect waves-light modal-trigger"><i class="material-icons left">person_outline</i>Log in</a></li>
+                        <% } else { %>
+                            <li><a href="?logout"><i class="material-icons left">exit_to_app</i>Log out</a></li>
+                        <% } %>
                     </ul>
                     <script>const mainMenu = document.getElementById("main-menu"); const mob = mainMenu.cloneNode(true); mob.className = "sidenav"; mob.id = "mobile-demo"; mainMenu.parentNode.appendChild(mob);</script>
+
                 </div>
             </div>
         </nav>
@@ -69,11 +82,6 @@
   var instances = M.Modal.init(elems, {});
   document.getElementById("auth-button")
     .addEventListener("click",e => {
-        /* fetch(POST){login,pass} -> /auth                         fetch(login) - challenge(random)
-            ->OK => обновляем страницу (текущую)                     hash(pass+challenge) -> fetch
-            ->NO => выводим сообщение на модальном окне                       ->OK | ->NO
-         */
-        // console.log("click");
         // setTimeout(()=>{M.Modal.getInstance(document.getElementById("auth-modal")).close();},1000)
         const authLogin = document.getElementById("auth-login").value;
         const authPass = document.getElementById("auth-pass").value;
@@ -83,12 +91,14 @@
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             body: `auth-login=${authLogin}&auth-pass=${authPass}`
-        }).then(r=>r.text()).then(console.log) ;
+        }).then(r=>r.text()).then( t => {
+            if( t == "OK" ) window.location = window.location ;
+            else console.log(t);
+        } ) ;
     });
 });</script>
-Д.З. Обеспечить клиентскую валидацию полей (логин и пароль аутентификации),
-     в случае непрохождения - не отправлять данные на сервер
-* Реализовать в UserDao метод получения пользователя по логину и паролю
-** Реализовать схему аутентификации ZNP (с challenge)
+Д.З. Авторизация: обработать негативный ответ сервера (отказ аутентификации)
+- вывести сообщение на форму входа.
+* Добавить диалог подтверждения выхода при нажатии на [Log out]
 </body>
 </html>
