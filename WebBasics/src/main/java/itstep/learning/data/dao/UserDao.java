@@ -55,6 +55,27 @@ public class UserDao {   // Data Access Object  for entity.User
         }
         return null ;
     }
+    public User getUserByLogin( String login ) {
+        String sql = "SELECT * FROM users WHERE login = ?" ;
+        try( PreparedStatement prep = dbService.getConnection().prepareStatement( sql ) ) {
+            prep.setString( 1, login ) ;
+            ResultSet res = prep.executeQuery() ;
+            if( res.next() ) {
+                return new User( res ) ;
+            }
+        } catch( Exception ex ) {
+            System.err.println( "UserDao::getUserByLogin" + ex.getMessage() ) ;
+        }
+        return null ;
+    }
+    public User getUserProfile( String login ) {
+        User user = this.getUserByLogin( login ) ;
+        if( user != null ) {
+            user.setPass( "" ) ;
+            user.setSalt( "" ) ;
+        }
+        return user ;
+    }
     public boolean add( @Nonnull UserModel model ) {
         // Генерируем соль
         String salt = hashService.getHexHash( System.nanoTime() + "" ) ;
