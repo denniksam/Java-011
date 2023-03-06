@@ -45,3 +45,7 @@ public class UserProfileServlet extends HttpServlet {
         req.getRequestDispatcher( "../WEB-INF/_layout.jsp" ).forward( req, resp ) ;
     }
 }
+/*
+Д.З. Разработать страницу для личного кабинета с возможностью редактировать
+некоторые поля (Имя, почту, аватар, пароль)
+ */
