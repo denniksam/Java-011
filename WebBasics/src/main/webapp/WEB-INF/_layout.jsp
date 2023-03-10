@@ -18,6 +18,7 @@
     <title>WebBasics</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="icon" href="<%= contextPath %>/image/logo.png"/>
 </head>
 <body>
 <div class="container" style="width:85%; margin-top:5px">
