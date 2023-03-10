@@ -14,15 +14,19 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Singleton
 public class UserDao {   // Data Access Object  for entity.User
     private final DbService dbService ;
     private final HashService hashService ;
+    private final Logger logger ;
 
-    @Inject public UserDao( DbService dbService, HashService hashService ) {
+    @Inject public UserDao( DbService dbService, HashService hashService, Logger logger ) {
         this.dbService = dbService ;
         this.hashService = hashService ;
+        this.logger = logger;
     }
 
     public List<User> getAll() {
@@ -38,7 +42,19 @@ public class UserDao {   // Data Access Object  for entity.User
             return null ;
         }
     }
-
+    public boolean updateName( User user ) {
+        String sql = "UPDATE users u SET u.`name` = ? WHERE u.`id` = ?" ;
+        try( PreparedStatement prep = dbService.getConnection().prepareStatement( sql ) ) {
+            prep.setString( 1, user.getName() ) ;
+            prep.setString( 2, user.getId().toString() ) ;
+            prep.executeUpdate() ;
+            return true ;
+        }
+        catch( Exception ex ) {
+            logger.log( Level.WARNING, ex.getMessage() ) ;
+        }
+        return false ;
+    }
     public User getUserByCredentials( String login, String password ) {
         String sql = "SELECT * FROM users WHERE login = ?";
         try( PreparedStatement prep = dbService.getConnection().prepareStatement(sql) ) {
