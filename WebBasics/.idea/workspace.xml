@@ -10,9 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/DataContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/TeamDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Team.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/HomeServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tasks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tasks.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/WebBasics/WEB-INF/tasks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/WebBasics/WEB-INF/tasks.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +27,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -454,7 +458,7 @@
       <workItem from="1678428287123" duration="1190000" />
       <workItem from="1678430181397" duration="169000" />
       <workItem from="1678458242685" duration="14042000" />
-      <workItem from="1678720807578" duration="6169000" />
+      <workItem from="1678720807578" duration="11287000" />
     </task>
     <servers />
   </component>
