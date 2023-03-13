@@ -187,6 +187,49 @@ public class UserProfileServlet extends HttpServlet {
 
 }
 /*
+Команды: пользователи могут состоять в разных командах
+Задачи: задача ставится любым участником команды, вся команда является исполнителем и "видит" чат
+Чат: по кажой задаче свой чат, писать и просматривать могут только участники
+
+CREATE TABLE `teams` (
+    `id` char(36) NOT NULL COMMENT 'UUID',
+    `name` varchar(64) NOT NULL,
+
+     PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+CREATE TABLE `teams_users` (
+    `id_team` char(36) NOT NULL,
+    `id_user` char(36) NOT NULL,
+
+     PRIMARY KEY (`id_team`, `id_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+CREATE TABLE `tasks` (
+    `id` char(36) NOT NULL COMMENT 'UUID',
+    `name` varchar(64) NOT NULL,
+    `status` int DEFAULT 0,
+    `id_user` char(36) NOT NULL COMMENT 'Author',
+    `id_team` char(36) NOT NULL,
+    `created_dt` datetime DEFAULT CURRENT_TIMESTAMP,
+    `deadline` datetime,
+    `priority` TINYINT default 0,
+
+     PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+CREATE TABLE `stories` (
+    `id` char(36) NOT NULL COMMENT 'UUID',
+    `id_user` char(36) NOT NULL COMMENT 'Author',
+    `id_task` char(36) NOT NULL,
+    `id_reply` char(36) NULL  COMMENT 'Other story id',
+    `content` TEXT NOT NULL,
+    `created_dt` datetime DEFAULT CURRENT_TIMESTAMP,
+
+     PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+ */
+/*
 Д.З. Расширить функциональность метода UserDao::updateName
 добавив также обновление аватара, а также почты
 Переименовать метод в UserDao::updateData

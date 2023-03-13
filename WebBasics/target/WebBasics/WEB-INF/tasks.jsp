@@ -5,12 +5,6 @@
     User authUser = (User) request.getAttribute( "authUser" ) ;
 %>
 
-<h2>Task manager</h2>
-
-<% if( authUser != null ) { %>
-    <jsp:include page="tasks.jsp"/>
-<% } else { %>
-    <p>
-        Войдите в систему для просмотра задач
-    </p>
-<% } %>
+<div>
+    Добавить задачу
+</div>
