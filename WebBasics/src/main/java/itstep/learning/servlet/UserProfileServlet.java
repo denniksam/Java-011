@@ -228,6 +228,15 @@ CREATE TABLE `stories` (
 
      PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+INSERT INTO `teams` VALUES( 'd5a875eb-c1c2-11ed-b458-14857fd97497', 'Frontend' ) ;
+INSERT INTO `teams` VALUES( '07094a33-c1c3-11ed-b458-14857fd97497', 'Backend' ) ;
+INSERT INTO `teams` VALUES( '16e22c6e-c1c3-11ed-b458-14857fd97497', 'Design' ) ;
+
+INSERT INTO `teams_users` VALUES ( 'd5a875eb-c1c2-11ed-b458-14857fd97497', 'c287623c-b473-11ed-8e31-14857fd97497' ) ;
+INSERT INTO `teams_users` VALUES ( '07094a33-c1c3-11ed-b458-14857fd97497', 'c287623c-b473-11ed-8e31-14857fd97497' ) ;
+INSERT INTO `teams_users` VALUES ( '16e22c6e-c1c3-11ed-b458-14857fd97497', 'c287623c-b473-11ed-8e31-14857fd97497' ) ;
+
  */
 /*
 Д.З. Расширить функциональность метода UserDao::updateName
